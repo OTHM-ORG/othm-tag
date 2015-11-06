@@ -1,6 +1,8 @@
 # othm-tag
 ## Tagging of data structures
-![Tags](tags.png?raw=true "Othm tags")
+<p align="center">
+  <img src="tags.png?raw=true" alt="Othm tagse"/>
+</p>
 ---
 
 *Coming soon*
