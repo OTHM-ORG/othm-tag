@@ -1,0 +1,28 @@
+#ifndef OTHM_TAG_H
+#define OTHM_TAG_H
+
+#define OTHM_GET_LEFT_TAG(TYPE, TAGGED) \
+	( ((TYPE)(TAGGED)) - 1)
+
+#define OTHM_GET_RIGHT_TAG(TYPE, TAGGED) \
+	((TYPE) ((TAGGED) + 1))
+
+#define OTHM_GET_TAGGED_LEFT(TYPE, LTAG) \
+	((TYPE) ((LTAG) + 1))
+
+#define OTHM_GET_TAGGED_RIGHT(TYPE, RTAG) \
+	( ((TYPE)(RTAG)) - 1)
+
+#define OTHM_LEFT_TAGGED_INIT(TAG_TYPE, TYPE, FULL_NAME, TAGGED_NAME)	\
+	struct { TAG_TYPE ltag; TYPE value; } FULL_NAME;		\
+	TYPE *TAGGED_NAME = &FULL_NAME.value
+
+#define OTHM_RIGHT_TAGGED_INIT(TAG_TYPE, TYPE, FULL_NAME, TAGGED_NAME)	\
+	struct { TYPE value; TAG_TYPE rtag; } FULL_NAME;		\
+	TYPE *TAGGED_NAME = &FULL_NAME.value
+
+#define OTHM_BOTH_TAGGED_INIT(RTAG_TYPE, LTAG_TYPE, TYPE,		\
+			      FULL_NAME, TAGGED_NAME)			\
+	struct { LTAG_TYPE ltag; TYPE value; RTAG_TYPE rtag; } FULL_NAME; \
+	TYPE *TAGGED_NAME = &FULL_NAME.value
+#endif
